@@ -13,8 +13,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --colors",
+    "eject": "react-scripts eject",
+    "prettify": "prettier --config package.json --ignore-path .prettierignore --write \"src/**/*.js\"",
+    "checkPrettier": "prettier --ignore-path .prettierignore --check \"src/**/*.js\"",
+    "lint": "node_modules/.bin/eslint --color --ext js,jsx ./src",
+    "lintify": "node_modules/.bin/eslint --color --fix --ext js,jsx ./src",
+    "fix": "npm run prettify && npm run lintify && npm run sniff",
+    "smellsGood": "echo Great success!! Your code smells goooood!",
+    "sniff": "npm run checkPrettier && npm run lint && npm run smellsGood"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +37,24 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "parser": "babel",
+    "semi": true,
+    "requirePragma": false,
+    "proseWrap": "preserve",
+    "arrowParens": "avoid",
+    "htmlWhitespaceSensitivity": "css",
+    "quoteProps": "as-needed"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "prettier": "^2.0.4"
   }
 }

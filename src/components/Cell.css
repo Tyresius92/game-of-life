@@ -1,0 +1,14 @@
+.alive {
+	background: green;
+}
+
+.dead {
+	background: white;
+}
+
+.alive,
+.dead {
+	border: 1px solid black;
+	padding-top: 100%;
+	margin: 0;
+}
